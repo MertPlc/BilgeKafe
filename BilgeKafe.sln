@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BilgeKafe.Data", "BilgeKafe.Data\BilgeKafe.Data.csproj", "{E27E6ED5-69A9-4EB5-9670-A4334AB1CA12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BilgeKafe.UI", "BilgeKafe.UI\BilgeKafe.UI.csproj", "{BC66AF80-B103-4C0E-B85F-9F4C8FF1D64F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E27E6ED5-69A9-4EB5-9670-A4334AB1CA12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E27E6ED5-69A9-4EB5-9670-A4334AB1CA12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E27E6ED5-69A9-4EB5-9670-A4334AB1CA12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E27E6ED5-69A9-4EB5-9670-A4334AB1CA12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC66AF80-B103-4C0E-B85F-9F4C8FF1D64F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC66AF80-B103-4C0E-B85F-9F4C8FF1D64F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC66AF80-B103-4C0E-B85F-9F4C8FF1D64F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC66AF80-B103-4C0E-B85F-9F4C8FF1D64F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5745D69F-5AA8-4922-9CA9-A31F8328A2BB}
+	EndGlobalSection
+EndGlobal
