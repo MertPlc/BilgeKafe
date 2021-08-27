@@ -41,7 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="KafeVeri.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Siparis.cs" />
+    <Compile Include="SiparisDetay.cs" />
+    <Compile Include="SiparisDurum.cs" />
+    <Compile Include="Urun.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="benioku.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
