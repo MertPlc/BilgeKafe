@@ -10,7 +10,7 @@ namespace BilgeKafe.Data
     {
         public int MasaNo { get; set; }
 
-        public SiparisDurum Durum { get; set; }
+        public SiparisDurum Durum { get; set; } = SiparisDurum.Aktif;
 
         public decimal OdenenTutar { get; set; }
 
@@ -23,13 +23,13 @@ namespace BilgeKafe.Data
 
         public DateTime? KapanisZamani { get; set; }
 
-        public List<SiparisDetay> SiparisDetaylar { get; set; }
+        public List<SiparisDetay> SiparisDetaylar { get; set; } = new List<SiparisDetay>();  //Sum ın calısması ıcın
 
-        public string ToplamTutarTL { get; }
+        public string ToplamTutarTL => $"{ToplamTutar():n2}₺";
 
-        public decimal ToplamTutar()
+        public decimal ToplamTutar()    // 1.Yontem  => SiparisDetaylar.Sum(sd => sd.Tutar());
         {
-            //decimal toplam = 0;
+         // 2.Yontem  decimal toplam = 0;
             //foreach (SiparisDetay detay in SiparisDetaylar)
             //{
             //    toplam += detay.Tutar();
