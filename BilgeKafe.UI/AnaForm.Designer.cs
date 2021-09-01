@@ -71,6 +71,7 @@ namespace BilgeKafe.UI
             this.tsmiGecmisSiparisler.Name = "tsmiGecmisSiparisler";
             this.tsmiGecmisSiparisler.Size = new System.Drawing.Size(108, 20);
             this.tsmiGecmisSiparisler.Text = "Geçmiş Siparişler";
+            this.tsmiGecmisSiparisler.Click += new System.EventHandler(this.tsmiGecmisSiparisler_Click);
             // 
             // AnaForm
             // 

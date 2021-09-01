@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BilgeKafe.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,28 @@ namespace BilgeKafe.UI
 {
     public partial class GecmisSiparislerForm : Form
     {
-        public GecmisSiparislerForm()
+        private readonly KafeVeri db;
+
+        public GecmisSiparislerForm(KafeVeri db)
         {
             InitializeComponent();
+            dgvSiparisler.AutoGenerateColumns = false;
+            dgvSiparisDetaylari.AutoGenerateColumns = false;
+            dgvSiparisler.DataSource = db.GecmisSiparisler;
+        }
+
+        private void dgvSiparisler_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvSiparisler.SelectedRows.Count == 0)
+            {
+                dgvSiparisDetaylari.DataSource = null;
+            }
+            else
+            {
+                DataGridViewRow satir = dgvSiparisler.SelectedRows[0];
+                Siparis siparis = (Siparis)satir.DataBoundItem;  // DataBoundItem: herbir siparisin herbir satırını esitliyor. Satıra baglı veri oğesi
+                dgvSiparisDetaylari.DataSource = siparis.SiparisDetaylar;
+            }
         }
     }
 }

@@ -29,6 +29,7 @@ namespace BilgeKafe.UI
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.cboUrun = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,6 +45,10 @@ namespace BilgeKafe.UI
             this.label4 = new System.Windows.Forms.Label();
             this.lblOdemeTutari = new System.Windows.Forms.Label();
             this.lblMasaNo = new System.Windows.Forms.Label();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.nudAdet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSiparisDetaylari)).BeginInit();
             this.SuspendLayout();
@@ -110,16 +115,23 @@ namespace BilgeKafe.UI
             // dgvSiparisDetaylari
             // 
             this.dgvSiparisDetaylari.AllowUserToAddRows = false;
-            this.dgvSiparisDetaylari.AllowUserToDeleteRows = false;
             this.dgvSiparisDetaylari.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvSiparisDetaylari.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSiparisDetaylari.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvSiparisDetaylari.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSiparisDetaylari.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4});
             this.dgvSiparisDetaylari.Location = new System.Drawing.Point(12, 72);
+            this.dgvSiparisDetaylari.MultiSelect = false;
             this.dgvSiparisDetaylari.Name = "dgvSiparisDetaylari";
             this.dgvSiparisDetaylari.ReadOnly = true;
+            this.dgvSiparisDetaylari.RowHeadersVisible = false;
+            this.dgvSiparisDetaylari.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSiparisDetaylari.Size = new System.Drawing.Size(484, 426);
             this.dgvSiparisDetaylari.TabIndex = 5;
             // 
@@ -168,6 +180,7 @@ namespace BilgeKafe.UI
             this.btnAnasayfa.TabIndex = 9;
             this.btnAnasayfa.Text = "ANASAYFAYA DÖN";
             this.btnAnasayfa.UseVisualStyleBackColor = false;
+            this.btnAnasayfa.Click += new System.EventHandler(this.btnAnasayfa_Click);
             // 
             // btnSiparisIptal
             // 
@@ -181,6 +194,7 @@ namespace BilgeKafe.UI
             this.btnSiparisIptal.TabIndex = 10;
             this.btnSiparisIptal.Text = "SİPARİŞ  İPTAL";
             this.btnSiparisIptal.UseVisualStyleBackColor = false;
+            this.btnSiparisIptal.Click += new System.EventHandler(this.btnSiparisIptal_Click);
             // 
             // btnOdemeAl
             // 
@@ -194,6 +208,7 @@ namespace BilgeKafe.UI
             this.btnOdemeAl.TabIndex = 11;
             this.btnOdemeAl.Text = "ÖDEME AL";
             this.btnOdemeAl.UseVisualStyleBackColor = false;
+            this.btnOdemeAl.Click += new System.EventHandler(this.btnOdemeAl_Click);
             // 
             // label4
             // 
@@ -213,9 +228,9 @@ namespace BilgeKafe.UI
             this.lblOdemeTutari.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblOdemeTutari.Location = new System.Drawing.Point(685, 317);
             this.lblOdemeTutari.Name = "lblOdemeTutari";
-            this.lblOdemeTutari.Size = new System.Drawing.Size(88, 25);
+            this.lblOdemeTutari.Size = new System.Drawing.Size(66, 25);
             this.lblOdemeTutari.TabIndex = 13;
-            this.lblOdemeTutari.Text = "119,99 ₺";
+            this.lblOdemeTutari.Text = "0,00 ₺";
             // 
             // lblMasaNo
             // 
@@ -229,6 +244,36 @@ namespace BilgeKafe.UI
             this.lblMasaNo.TabIndex = 15;
             this.lblMasaNo.Text = "03";
             this.lblMasaNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "UrunAd";
+            this.Column1.HeaderText = "Ürün";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "BirimFiyat";
+            dataGridViewCellStyle4.Format = "0.00₺";
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column2.HeaderText = "Birim Fiyatı";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "Adet";
+            this.Column3.HeaderText = "Adet";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "TutarTL";
+            this.Column4.HeaderText = "Tutar";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // SiparisForm
             // 
@@ -278,5 +323,9 @@ namespace BilgeKafe.UI
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblOdemeTutari;
         private System.Windows.Forms.Label lblMasaNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }
