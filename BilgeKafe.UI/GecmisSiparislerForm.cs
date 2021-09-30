@@ -20,12 +20,12 @@ namespace BilgeKafe.UI
             InitializeComponent();
             dgvSiparisler.AutoGenerateColumns = false;
             dgvSiparisDetaylari.AutoGenerateColumns = false;
-            dgvSiparisler.DataSource = db.GecmisSiparisler;
+            dgvSiparisler.DataSource = db.Siparisler.Where(x => x.Durum != SiparisDurum.Aktif).ToList();
         }
 
         private void dgvSiparisler_SelectionChanged(object sender, EventArgs e)
         {
-            if (dgvSiparisler.SelectedRows.Count == 0)
+            if (dgvSiparisler.SelectedRows.Count != 1)
             {
                 dgvSiparisDetaylari.DataSource = null;
             }
@@ -33,7 +33,7 @@ namespace BilgeKafe.UI
             {
                 DataGridViewRow satir = dgvSiparisler.SelectedRows[0];
                 Siparis siparis = (Siparis)satir.DataBoundItem;  // DataBoundItem: herbir siparisin herbir satırını esitliyor. Satıra baglı veri oğesi
-                dgvSiparisDetaylari.DataSource = siparis.SiparisDetaylar;
+                dgvSiparisDetaylari.DataSource = siparis.SiparisDetaylar.ToList();
             }
         }
     }

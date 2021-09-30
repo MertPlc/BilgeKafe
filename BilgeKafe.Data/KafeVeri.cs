@@ -1,19 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BilgeKafe.Data
 {
-    public class KafeVeri
+    public class KafeVeri : DbContext
     {
+        public KafeVeri() : base("name=KafeVeri")
+        {
+
+        }
         public int MasaAdet { get; set; } = 20;
 
-        public List<Urun> Urunler { get; set; } = new List<Urun>();
+        public DbSet<Urun> Urunler { get; set; }
 
-        public List<Siparis> AktifSiparisler { get; set; } = new List<Siparis>();   //null baslamaması ıcın
+        public DbSet<Siparis> Siparisler { get; set; }
 
-        public List<Siparis> GecmisSiparisler { get; set; } = new List<Siparis>();
+        public DbSet<SiparisDetay> SiparisDetaylar { get; set; }
     }
 }

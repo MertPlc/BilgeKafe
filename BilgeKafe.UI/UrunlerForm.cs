@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,7 @@ namespace BilgeKafe.UI
         public UrunlerForm(KafeVeri db)
         {
             this.db = db;
-            blUrunler = new BindingList<Urun>(db.Urunler);
+            blUrunler = new BindingList<Urun>(db.Urunler.ToList());
             InitializeComponent();
             dgvUrunler.AutoGenerateColumns = false;
             dgvUrunler.DataSource = blUrunler;
@@ -38,7 +39,9 @@ namespace BilgeKafe.UI
 
             if (btnUrunEkle.Text == "EKLE")
             {
-                blUrunler.Add(new Urun() { UrunAd = ad, BirimFiyat = birimFiyat });
+                Urun urun = new Urun() { UrunAd = ad, BirimFiyat = birimFiyat };
+                blUrunler.Add(urun);
+                db.Urunler.Add(urun);
             }
             else
             {
@@ -46,10 +49,9 @@ namespace BilgeKafe.UI
                 Urun urun = (Urun)satir.DataBoundItem;
                 urun.UrunAd = ad;
                 urun.BirimFiyat = birimFiyat;
-
                 blUrunler.ResetBindings();  //urunlerde degısıklık oldugunu haber verıyor.
             }
-
+            db.SaveChanges();
             FormuResetle();
 
         }
@@ -58,7 +60,15 @@ namespace BilgeKafe.UI
         {
             DialogResult dr = MessageBox.Show("Seçili ürün silinecektir. Onaylıyor musunuz?", "Silme Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
 
-            e.Cancel = dr == DialogResult.No;
+            if (dr == DialogResult.No)
+            {
+                e.Cancel = true;
+                return;
+            }
+
+            Urun urun = (Urun)e.Row.DataBoundItem;
+            db.Urunler.Remove(urun);
+            db.SaveChanges();
 
             //if (dr == DialogResult.No)
             //{
